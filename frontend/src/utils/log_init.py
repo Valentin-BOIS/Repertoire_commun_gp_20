@@ -2,7 +2,7 @@ import logging
 import logging.config
 from pathlib import Path
 
-import streamlit as st
+import streamlit as st # type: ignore
 import yaml
 
 
