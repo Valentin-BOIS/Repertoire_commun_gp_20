@@ -14,7 +14,7 @@ class GameService:
 
     @log
     def play(
-        self, id_player: int, id_opponent: int, game_mode: Literal["coinflip", "dice"], **kwargs
+        cls, id_player: int, id_opponent: int, game_mode: Literal["coinflip", "dice"], **kwargs
     ) -> Game:
         """Executes a single round of a coin-flip game between two players.
         Args:

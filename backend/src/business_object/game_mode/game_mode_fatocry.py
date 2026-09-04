@@ -11,7 +11,7 @@ class GameModeFactory:
     """
 
     @classmethod
-    def get_mode(self, game_mode: Literal["coinflip", "dice"]) -> GameMode:
+    def get_mode(cls, game_mode: Literal["coinflip", "dice"]) -> GameMode:
         """
         Returns the corresponding GameMode object.
         Args:

@@ -32,6 +32,7 @@ class DiceMode(GameMode):
             player2=p2,
             game_mode="dice",
             winner=winner,
-            description="",
+            description=f"{p1.username}: {d1}, {p2.username}: {d2}"
+            + (f"{winner.username} won" if winner is not None else "draw"),
             timestamp=datetime.now(),
         )
