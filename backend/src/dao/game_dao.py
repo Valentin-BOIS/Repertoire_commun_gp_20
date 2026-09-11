@@ -1,5 +1,6 @@
 from business_object.game import Game
 from dao.db_connection import DBConnection
+from dao.player_dao import PlayerDao
 from utils.log_utils import get_logger, log
 from utils.singleton import Singleton
 
@@ -72,12 +73,12 @@ class GameDao(metaclass=Singleton):
         if res:
             game = Game(
                 id_game=res["id_game"],
-                player1=GameDao().find_by_id(res["id_player1"]),
-                player2=GameDao().find_by_id(res["id_player2"]),
+                player1=PlayerDao().find_by_id(res["id_player1"]),
+                player2=PlayerDao().find_by_id(res["id_player2"]),
                 game_mode=res["game_mode"],
-                winner=GameDao().find_by_id(res["id_winner"]),
+                winner=PlayerDao().find_by_id(res["id_winner"]),
                 description=res["detail"],
-                timestamp=res["timestamp"],
+                timestamp=res["timestamp"]
             )
 
         return game
