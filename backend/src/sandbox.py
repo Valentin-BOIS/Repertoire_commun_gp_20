@@ -12,6 +12,8 @@ p1 = Player(username="Toto", password="Toto12", elo="12", email="toto@gmail.com"
 p2 = Player(username="Tata", password="Tata12", elo="21", email="tata@gmail.com", pokemon_fan="FALSE")
 game = Game(player1=p1, player2=p2, game_mode="dice", winner=p1, description="blabla", timestamp=datetime.now(), id_game = "45678")
 
-id = PlayerDao().create(p1)
-print(id)
+id1 = PlayerDao().delete("Toto")
+id0 = PlayerDao().create(p1)
+id2 = GameDao().create(game)
+print(id2)
 game2 = GameDao().find_by_id(45678)
