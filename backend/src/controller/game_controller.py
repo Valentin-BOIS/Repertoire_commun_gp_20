@@ -41,3 +41,20 @@ def play_game(
         new_elo1=game.player1.elo,
         new_elo2=game.player2.elo,
     )
+
+
+@router.get("/players/{id_player}/games", response_model=list[GameResponse], tags=["Games"])
+async def get_player_games(
+    id_player: int, game_mode: str = None, game_service=Depends(get_game_service)
+):
+    """List all games played by a player.
+    Arguments:
+        id_player: int
+            The id of the player to find the games.
+        game_mode: str | None
+            The game mode, all of them if None
+    Returns:
+        list[GameResponse]: A list of all games played by the player.
+    """
+    logger.info("List all games playes by a player.")
+    return GameService().find_all_by_player(id_player=id_player, game_mode=game_mode)
